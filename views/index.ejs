@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>student result</title>
+  <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    html {
+      font-size: 62.5%;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5rem 5rem 10rem;
+      line-height: 1.7;
+      font-family: 'Nunito Sans', sans-serif;
+      color: #555;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #34aeeb, #00e3a6);
+    }
+
+    h1 {
+      font-family: 'Megrim', sans-serif;
+      font-size: 6rem;
+      color: white;
+      /* transform: skewY(-5deg); */
+      text-align: center;
+      position: relative;
+      word-spacing: 3px;
+    }
+
+    h1::before {
+      content: '';
+      display: block;
+      height: 65%;
+      width: 49%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: linear-gradient(to bottom, #34aeeb, #00e3a6);
+      opacity: 0.8;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+
+    .container {
+      width: 95rem;
+      margin: 0 auto;
+    }
+
+    .cards-container {
+      margin-top: 8rem;
+    }
+
+    .card {
+      background: white;
+      box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+      margin-bottom: 5rem;
+      /* transform: skewX(-10deg); */
+      display: flex;
+      transition: all 0.5s;
+    }
+
+    .card__emoji {
+      font-size: 5.5rem;
+      line-height: 1.2;
+      padding: 1.5rem 6rem 0.5rem 1.5rem;
+      letter-spacing: -4rem;
+      /* transform: skewX(20deg); */
+    }
+
+    .card__title-box {
+      background: linear-gradient(to bottom, #34aeeb, #00e3ae);
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      padding: 0 3rem;
+    }
+
+    .card__title {
+      font-family: 'Megrim', sans-serif;
+      color: white;
+      font-size: 3.25rem;
+      /* transform: skewX(10deg); */
+    }
+
+    .card__details {
+      display: flex;
+    }
+
+    .card__detail-box {
+      align-self: stretch;
+      border-right: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+    }
+
+    .card__detail-box:last-child {
+      border: none;
+    }
+
+    .card__detail {
+      font-weight: 400;
+      font-size: 1.8rem;
+      /* transform: skewX(20deg); */
+      padding: 1.75rem;
+    }
+
+    .card__detail--organic {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 1.9rem;
+      background-image: linear-gradient(to right, #34aeeb, #00e3ae);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .card__detail--price {
+      font-weight: 900;
+      font-size: 1.9rem;
+    }
+
+    .card__link:link,
+    .card__link:visited {
+      flex: 0 0 auto;
+      background-color: #00e3ae;
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 2.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .card__link:hover,
+    .card__link:active {
+      background-color: #34aeeb;
+    }
+
+    .card__link1:link,
+    .card__link1:visited {
+      flex: 0 0 auto;
+      background-color: #8400e3;
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 2.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .card__link1:hover,
+    .card__link1:active {
+      background-color: #eb3434;
+    }
+
+
+    .card__link2:link,
+    .card__link2:visited {
+      flex: 0 0 auto;
+      background-color: #d9c8e5;
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 2.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .card__link2:hover,
+    .card__link2:active {
+      background-color: #1e1616;
+    }
+
+
+    /* .card:hover {
+        transform: skewX(-20deg) scale(1.08);
+        box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+      } */
+
+    .emoji-left {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+
+    .emoji-right {
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+
+    .not-organic {
+      display: none;
+    }
+
+    .inputt {
+      text-align: center;
+      margin-bottom: 100px;
+
+    }
+
+    .inputt input {
+      height: 80px;
+      text-align: center;
+      border-radius: 10%;
+      font-size: 15px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inputt">
+    <form>
+      <input type="hidden" name="upDataid" value="<%=index1%>">
+      <input type="text" name="studentName" placeholder="name" value="<%=cuurntData.studentName%>">
+      <input type="text" name="sub1" placeholder="sub1" value="<%=cuurntData.sub1%>">
+      <input type="text" name="sub2" placeholder="sub2" value="<%=cuurntData.sub2%>">
+      <input type="text" name="sub3" placeholder="sub3" value="<%=cuurntData.sub3%>">
+      <input type="text" name="sub4" placeholder="sub4" value="<%=cuurntData.sub4%>">
+      <input type="text" name="sub5" placeholder="sub5" value="<%=cuurntData.sub5%>"><br>
+      <button style="width: 20%; margin:10px;" >Add</button>
+    </form>
+
+  </div>
+
+
+
+  <div class="container">
+    <h1>Student Result</h1>
+
+
+    <div class="cards-container">
+   
+
+
+      <% for(let i=0; i< value.length; i++){ %>
+        <% total=parseInt(value[i].sub1) + parseInt(value[i].sub2) + parseInt(value[i].sub3) + parseInt(value[i].sub4) + parseInt(value[i].sub5) %>
+          <% per=total/5 %>
+            <figure class="card">
+              <div class="card__emoji" >
+                <%=i+1%>
+              </div>
+
+              <div class="card__title-box">
+                <h2 class="card__title">
+                  <%=value[i].studentName%>
+                </h2>
+              </div>
+
+              <div class="card__details">
+                <div class="card__detail-box">
+                  <h6 class="card__detail card__detail--organic">
+                    <% if (value[i].result==true) { %>
+                      pass
+                      <%} else { %>
+                        fail
+                        <%}%>
+                  </h6>
+                </div>
+
+                <div class="card__detail-box">
+                  <h6 class="card__detail">
+                    Total :- <%=total%>
+                  </h6>
+                </div>
+
+                <div class="card__detail-box">
+                  <h6 class="card__detail card__detail--price">
+                    <%=per%>%
+                  </h6>
+                </div>
+              </div>
+
+              <a class="card__link" href="/details?id=<%=i%>">
+                <span>Detail <i class="emoji-right">👉</i></span>
+              </a>
+              <a class="card__link1" href="/?id=<%=i%>">
+                <span class="delet">Delet</span>
+              </a>
+              <a class="card__link2" href="/?i=<%=i%>">
+                <span class="delet">edit</span>
+              </a>
+            </figure>
+            <% } %>
+    </div>
+  </div>
+</body>
+
+</html>
